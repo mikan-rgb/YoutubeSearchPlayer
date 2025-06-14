@@ -3,6 +3,7 @@ import { Play, ThumbsUp, ThumbsDown, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { extractVideoId, createEmbedUrl } from "@/lib/youtube";
+import DownloadButton from "@/components/DownloadButton";
 
 interface VideoPlayerProps {
   currentVideoId: string | null;
@@ -82,8 +83,8 @@ export default function VideoPlayer({
             <h2 className="text-xl font-semibold mb-2 text-white">
               {currentVideoTitle}
             </h2>
-            <div className="flex items-center justify-between text-gray-400 text-sm">
-              <span>0 views</span>
+            <div className="flex items-center justify-between text-gray-400 text-sm mb-4">
+              <span>プライベートモードで視聴中</span>
               <div className="flex items-center space-x-4">
                 <Button
                   variant="ghost"
@@ -91,14 +92,7 @@ export default function VideoPlayer({
                   className="flex items-center space-x-1 hover:text-white transition-colors text-gray-400"
                 >
                   <ThumbsUp className="h-4 w-4" />
-                  <span>0</span>
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="flex items-center space-x-1 hover:text-white transition-colors text-gray-400"
-                >
-                  <ThumbsDown className="h-4 w-4" />
+                  <span>いいね</span>
                 </Button>
                 <Button
                   variant="ghost"
@@ -106,9 +100,14 @@ export default function VideoPlayer({
                   className="flex items-center space-x-1 hover:text-white transition-colors text-gray-400"
                 >
                   <Share2 className="h-4 w-4" />
-                  <span>Share</span>
+                  <span>共有</span>
                 </Button>
               </div>
+            </div>
+            
+            {/* Download Section */}
+            <div className="border-t border-gray-600 pt-4">
+              <DownloadButton videoId={currentVideoId} title={currentVideoTitle} />
             </div>
           </div>
         )}
