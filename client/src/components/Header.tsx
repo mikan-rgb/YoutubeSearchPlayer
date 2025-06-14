@@ -55,7 +55,7 @@ export default function Header({ onSearch, onVideoLoad }: HeaderProps) {
             <div className="relative">
               <Input
                 type="text"
-                placeholder="Search YouTube videos or paste URL..."
+                placeholder="🔒 YouTube動画を検索またはURLを貼り付け..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyPress={handleKeyPress}

@@ -90,12 +90,15 @@ URLPlayer is a modern YouTube video player application built with React and Expr
 ```
 Changelog:
 - June 14, 2025. Initial setup
+- June 14, 2025. Enhanced privacy features - implemented youtube-nocookie.com embedding, added privacy protection modes, Japanese UI localization for anonymous viewing
 ```
 
 ## User Preferences
 
 ```
 Preferred communication style: Simple, everyday language.
+Privacy requirements: High anonymity, no direct YouTube links, in-app viewing only.
+Language preference: Japanese for UI elements.
 ```
 
 ## Additional Notes

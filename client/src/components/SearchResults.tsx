@@ -17,7 +17,7 @@ export default function SearchResults({
     <div className="lg:col-span-1">
       <div className="bg-youtube-gray rounded-lg p-4">
         <h3 className="text-lg font-semibold mb-4 text-white">
-          {isSearchResults ? "Search Results" : "Popular Videos"}
+          {isSearchResults ? "検索結果" : "人気動画"}
         </h3>
 
         <div className="space-y-3">
@@ -46,31 +46,28 @@ export default function SearchResults({
         </div>
       </div>
 
-      {/* Quick Actions */}
+      {/* Privacy Info */}
       <div className="mt-6 bg-youtube-gray rounded-lg p-4">
-        <h3 className="text-lg font-semibold mb-3 text-white">Quick Actions</h3>
-        <div className="space-y-2">
-          <Button
-            variant="ghost"
-            className="w-full justify-start text-left p-2 hover:bg-gray-700 rounded transition-colors text-white"
-          >
-            <History className="h-4 w-4 mr-2" />
-            Watch History
-          </Button>
-          <Button
-            variant="ghost"
-            className="w-full justify-start text-left p-2 hover:bg-gray-700 rounded transition-colors text-white"
-          >
-            <Bookmark className="h-4 w-4 mr-2" />
-            Saved Videos
-          </Button>
-          <Button
-            variant="ghost"
-            className="w-full justify-start text-left p-2 hover:bg-gray-700 rounded transition-colors text-white"
-          >
-            <Download className="h-4 w-4 mr-2" />
-            Downloads
-          </Button>
+        <h3 className="text-lg font-semibold mb-3 text-white flex items-center">
+          🔒 プライバシー保護
+        </h3>
+        <div className="space-y-2 text-sm text-gray-300">
+          <div className="flex items-start space-x-2">
+            <span className="text-green-400 font-bold">✓</span>
+            <span>youtube-nocookie.com を使用</span>
+          </div>
+          <div className="flex items-start space-x-2">
+            <span className="text-green-400 font-bold">✓</span>
+            <span>追跡Cookie なし</span>
+          </div>
+          <div className="flex items-start space-x-2">
+            <span className="text-green-400 font-bold">✓</span>
+            <span>アプリ内で安全に視聴</span>
+          </div>
+          <div className="flex items-start space-x-2">
+            <span className="text-green-400 font-bold">✓</span>
+            <span>直接リンクを開かない</span>
+          </div>
         </div>
       </div>
     </div>

@@ -50,21 +50,29 @@ export default function VideoPlayer({
               <div className="text-center">
                 <Play className="h-16 w-16 text-gray-600 mb-4 mx-auto" />
                 <p className="text-gray-400 text-lg mb-2">
-                  Search for a video or paste a YouTube URL to start watching
+                  動画URLを入力して、アプリ内で安全に視聴
                 </p>
                 <p className="text-gray-500 text-sm">
-                  Supports youtube.com and youtu.be links
+                  プライバシー保護モードで再生されます
                 </p>
               </div>
             </div>
           ) : (
-            <iframe
-              className="w-full h-full"
-              src={createEmbedUrl(currentVideoId, true)}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            <div className="relative w-full h-full">
+              <iframe
+                className="w-full h-full border-0"
+                src={createEmbedUrl(currentVideoId, false)}
+                title="プライベート動画プレイヤー"
+                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                sandbox="allow-scripts allow-same-origin allow-presentation allow-forms"
+                referrerPolicy="no-referrer"
+                loading="lazy"
+              />
+              <div className="absolute top-2 right-2 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded">
+                🔒 プライベートモード
+              </div>
+            </div>
           )}
         </div>
 
@@ -108,11 +116,13 @@ export default function VideoPlayer({
 
       {/* URL Input Section */}
       <div className="mt-6 bg-youtube-gray rounded-lg p-4">
-        <h3 className="text-lg font-semibold mb-3 text-white">Direct URL Player</h3>
+        <h3 className="text-lg font-semibold mb-3 text-white flex items-center">
+          🔒 プライベート動画プレイヤー
+        </h3>
         <div className="flex space-x-2">
           <Input
             type="url"
-            placeholder="Paste YouTube URL here (e.g., https://www.youtube.com/watch?v=...)"
+            placeholder="YouTubeのURLをここに貼り付け (例: https://www.youtube.com/watch?v=...)"
             value={urlInput}
             onChange={(e) => setUrlInput(e.target.value)}
             onKeyPress={handleKeyPress}
@@ -123,12 +133,15 @@ export default function VideoPlayer({
             disabled={isLoading}
             className="bg-youtube-red hover:bg-red-600 px-4 py-2 rounded font-medium transition-colors"
           >
-            {isLoading ? "Loading..." : "Load Video"}
+            {isLoading ? "読み込み中..." : "動画を読み込む"}
           </Button>
         </div>
-        <p className="text-gray-400 text-sm mt-2">
-          Supports: youtube.com/watch?v=, youtu.be/, youtube.com/embed/
-        </p>
+        <div className="mt-3 text-gray-400 text-sm space-y-1">
+          <p>✓ プライバシー保護モードで再生</p>
+          <p>✓ 追跡・Cookie なし (youtube-nocookie.com使用)</p>
+          <p>✓ アプリ内で安全に視聴</p>
+          <p className="text-xs">対応: youtube.com/watch?v=, youtu.be/, youtube.com/embed/</p>
+        </div>
       </div>
     </div>
   );

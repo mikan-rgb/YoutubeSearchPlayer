@@ -14,7 +14,24 @@ export function extractVideoId(url: string): string | null {
 }
 
 export function createEmbedUrl(videoId: string, autoplay: boolean = true): string {
-  return `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay ? 1 : 0}&rel=0`;
+  // Enhanced privacy and security parameters
+  const params = new URLSearchParams({
+    autoplay: autoplay ? '1' : '0',
+    rel: '0', // Don't show related videos
+    modestbranding: '1', // Minimal YouTube branding
+    iv_load_policy: '3', // Hide video annotations
+    cc_load_policy: '0', // Don't show captions by default
+    fs: '1', // Allow fullscreen
+    disablekb: '0', // Enable keyboard controls
+    enablejsapi: '1', // Enable JS API for better control
+    origin: window.location.origin, // Set origin for security
+    playsinline: '1', // Play inline on mobile
+    controls: '1', // Show player controls
+    showinfo: '0', // Hide video info
+    privacy_mode: '1' // Enable privacy-enhanced mode
+  });
+  
+  return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
 }
 
 export function generateMockSearchResults(query: string): VideoInfo[] {
