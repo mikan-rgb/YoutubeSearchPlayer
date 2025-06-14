@@ -1,6 +1,7 @@
 import { History, Bookmark, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { VideoInfo } from "@/lib/youtube";
+import AppExportButton from "@/components/AppExportButton";
 
 interface SearchResultsProps {
   videos: VideoInfo[];
@@ -69,6 +70,14 @@ export default function SearchResults({
             <span>直接リンクを開かない</span>
           </div>
         </div>
+      </div>
+
+      {/* App Export Section */}
+      <div className="mt-6 bg-youtube-gray rounded-lg p-4">
+        <h3 className="text-lg font-semibold mb-3 text-white flex items-center">
+          📱 アプリをダウンロード
+        </h3>
+        <AppExportButton />
       </div>
     </div>
   );

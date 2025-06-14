@@ -103,7 +103,8 @@ export default function DownloadButton({ videoId, title }: DownloadButtonProps) 
             <SelectValue placeholder="形式を選択" />
           </SelectTrigger>
           <SelectContent className="bg-youtube-gray border-gray-600">
-            <SelectItem value="mp4" className="text-white hover:bg-gray-700">MP4</SelectItem>
+            <SelectItem value="mp4" className="text-white hover:bg-gray-700">MP4 (動画)</SelectItem>
+            <SelectItem value="mp3" className="text-white hover:bg-gray-700">MP3 (音声)</SelectItem>
             <SelectItem value="webm" className="text-white hover:bg-gray-700">WebM</SelectItem>
           </SelectContent>
         </Select>
@@ -117,7 +118,7 @@ export default function DownloadButton({ videoId, title }: DownloadButtonProps) 
       >
         {getStatusIcon()}
         <span className="ml-2">
-          {isDownloading ? getStatusText() : '📋 ダウンロード手順を取得'}
+          {isDownloading ? getStatusText() : `📋 ${format === 'mp3' ? 'MP3音声' : format === 'mp4' ? 'MP4動画' : 'WebM'}手順を取得`}
         </span>
       </Button>
 
