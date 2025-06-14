@@ -92,6 +92,7 @@ Changelog:
 - June 14, 2025. Initial setup
 - June 14, 2025. Enhanced privacy features - implemented youtube-nocookie.com embedding, added privacy protection modes, Japanese UI localization for anonymous viewing
 - June 14, 2025. Added legal download instruction system - creates downloadable instruction files with legal download methods, respects copyright and YouTube ToS
+- June 14, 2025. Implemented MP4/MP3 download support and standalone HTML app export - added format-specific download instructions for video/audio, created complete standalone HTML exporter for offline use
 ```
 
 ## User Preferences
